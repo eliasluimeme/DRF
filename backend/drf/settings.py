@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'django_extensions', #Great packaged to access abstract models
     'django_filters', #Used with DRF
     'rest_framework', #DRF package
+    'rest_framework.authtoken',
     'core', # New app
+    'auth2',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +119,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
     'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
         'rest_framework_json_api.parsers.JSONParser',
     ),
     'DEFAULT_RENDERER_CLASSES': (
